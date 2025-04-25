@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/me', {
+        const response = await axios.get('https://smartplay-backend-1.onrender.com/api/auth', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
