@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const response = await axios.get('https://smartplay-backend-1.onrender.com/api/auth', {
+        const response = await axios.get('https://smartplay-backend-1.onrender.com/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://smartplay-backend-1.onrender.com/api/auth/login', {
         email,
         password
       });
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('https://smartplay-backend-1.onrender.com/api/auth/register', {
         username,
         email,
         password
